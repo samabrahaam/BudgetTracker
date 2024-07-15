@@ -10,10 +10,12 @@ const CategoryInput = () => {
         e.preventDefault();
         const newCategory = { name, allocation_type: type, value: parseFloat(value) };
         try {
-            await axios.post('http://localhost:8000/api/categories/', newCategory);
+            const response = await axios.post('http://localhost:8000/api/categories/', newCategory);
             alert('Category added successfully');
+            console.log(response.data);
         } catch (error) {
-            alert('Error adding category');
+            console.error('Error adding category', error.response);
+            alert(`Error adding category: ${error.response?.data?.detail || error.message}`);
         }
     };
 
