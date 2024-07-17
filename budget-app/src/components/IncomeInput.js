@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+//import './IncomeInput.css'; // Import your CSS file
 
 const IncomeInput = ({ onBudgetCalculated }) => {
     const [biweeklyIncome, setBiweeklyIncome] = useState('');
@@ -31,7 +32,7 @@ const IncomeInput = ({ onBudgetCalculated }) => {
     };
 
     return (
-        <div>
+        <div className="form">
             <form onSubmit={handleSubmit}>
                 <div>
                     <label>Biweekly Income:</label>

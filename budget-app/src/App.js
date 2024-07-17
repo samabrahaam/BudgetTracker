@@ -17,18 +17,24 @@ function App() {
   };
 
   const handleBudgetCalculation = (calculatedBudget) => {
-    setBudget(calculatedBudget);
+      setBudget(calculatedBudget);
   };
-  
+
   return (
-    <div className="App">
-        <h1>Budgeting Application</h1>
-        <IncomeInput onBudgetCalculated={handleBudgetCalculation} />
-        <CategoryInput />
-        <ClearCategories onClear={handleCategoriesCleared} />
-        {budget && !categoriesCleared && <BudgetSummary budget={budget} />}
-    </div>
-);
+      <div className="App">
+          <div className="container">
+              <h1 className="header">Budgeting Application</h1>
+              <IncomeInput onBudgetCalculated={handleBudgetCalculation} />
+              <CategoryInput />
+              <ClearCategories onClear={handleCategoriesCleared} />
+              {!categoriesCleared && budget && (
+                  <div className="categories">
+                      <BudgetSummary budget={budget} />
+                  </div>
+              )}
+          </div>
+      </div>
+  );
 }
 
 export default App;
